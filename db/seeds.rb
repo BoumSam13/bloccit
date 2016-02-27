@@ -23,6 +23,14 @@ end
         price: 1
     )
 end
+
+100.times do
+    Question.create!(
+        title: RandomData.random_sentence,
+        body: RandomData.random_paragraph,
+        resolved: false
+    )
+end
  
 puts "#{Post.count}"
 Post.find_or_create_by(title: "A title", body: "A body")
@@ -36,3 +44,4 @@ puts "Seed finished"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Advertisement.count} advertisements created"
+puts "#{Question.count} questions created"
