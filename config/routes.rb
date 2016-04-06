@@ -9,5 +9,6 @@
    resources :sessions, only: [:new, :create, :destroy]
    post 'users/confirm' => 'users#confirm'
    get 'about' => 'welcome#about'
+   get 'welcome/faq'
    root 'welcome#index'
  end

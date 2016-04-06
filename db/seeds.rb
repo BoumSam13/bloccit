@@ -1,5 +1,14 @@
 require "random_data"
 
+5.times do
+    User.create!(
+        name: RandomData.random_name,
+        email: RandomData.random_email,
+        password: RandomData.random_sentence
+    )
+end
+users = User.all
+
 15.times do
     Topic.create!(
         name: RandomData.random_sentence,
@@ -19,6 +28,7 @@ end
 
 50.times do
     Post.create!(
+        user: users.sample,
         topic: topics.sample,
         title:  RandomData.random_sentence,
         body:   RandomData.random_paragraph
@@ -58,7 +68,14 @@ puts "#{Comment.count}"
 Comment.find_or_create_by(body: "A comment body", post: post1)
 puts "#{Comment.count}"
 
+user = User.first
+user.update_attributes!(
+    email: 'sam_boumeester41@hotmail.com',
+    password: 'helloworld'
+)
+
 puts "Seed finished"
+puts "#{User.count} users created"
 puts "#{Topic.count} topics created"
 puts "#{SponsoredPost.count} sponsored posts created"
 puts "#{Post.count} posts created"
