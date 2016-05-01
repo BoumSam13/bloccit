@@ -16,6 +16,7 @@ RSpec.describe CommentsController, type: :controller do
                 expect(response).to redirect_to(new_session_path)
             end
         end
+        
  
         describe "DELETE destroy" do
             it "redirects the user to the sign in view" do
