@@ -31,7 +31,7 @@ class UsersController < ApplicationController
     def show
         @user = User.find(params[:id])
         @posts = @user.posts.visible_to(current_user)
-        # Added this
-        @comments = @user.comments.visible_to(current_user)
+        # The comment below is causing three errors. think it was used for an assignment
+        #@comments = @user.comments.visible_to(current_user)
     end
 end
