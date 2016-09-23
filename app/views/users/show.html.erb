@@ -13,6 +13,8 @@
                 <small>
                     <%= pluralize(@user.posts.count, 'post') %>,
                     <div class='js-comments-count'><%= pluralize(@user.comments.count, 'comment') %></div>
+                    <div class='js-comments-count'><%= pluralize(@user.up_votes, 'up_vote') %></div>
+                    <div class='js-comments-count'><%= pluralize(@user.down_votes, 'down_vote') %></div>
                 </small>
             </div>
         </div>
@@ -24,3 +26,4 @@
  
 <h2>Comments</h2>
 <%= render @user.comments %>
+

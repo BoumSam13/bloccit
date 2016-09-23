@@ -41,6 +41,7 @@
         </div>
     <% end %>
     <div class="col-md-4">
+        <div class='js-votes'>
         <h3>
             <%= pluralize(@post.points, 'point') %>
         <div>
@@ -50,6 +51,7 @@
             </small>
         </div>
         </h3>
+        </div>
         <% if current_user %>
             <%= render partial: 'favorites/favorite', locals: { post: @post } %>
         <% end %>
